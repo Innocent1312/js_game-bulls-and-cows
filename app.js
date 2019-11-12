@@ -2,7 +2,7 @@ function generateNumber() {
   let generatedNumber = [];
 
   while (generatedNumber.length < 4) {
-    let random = Math.floor(Math.random()*9) + 1;
+    let random = Math.floor(Math.random() * 9) + 1;
 
     if (generatedNumber.indexOf(random) === -1) {
       generatedNumber.push(random);
@@ -28,10 +28,10 @@ function showComputerValue(generatedNumber) {
   const computerNumber = document.getElementById('computer-number');
   const showButton = document.getElementById('show-btn');
 
-  showButton.addEventListener('click', ()=>{
+  showButton.addEventListener('click', () => {
     const computerDiv = document.createElement('div');
-    computerDiv.innerHTML = `Computer number is: ${generatedNumber}`;
 
+    computerDiv.innerHTML = `Computer number is: ${generatedNumber}`;
     computerNumber.append(computerDiv);
   },false)
 }
@@ -73,7 +73,6 @@ function render(generatedNumeral, enteredNumeral, gameCounter) {
 
   userDiv.innerHTML = `You'r number is: ${enteredNumeral}`;
   gameDiv.innerHTML = `You have: ${gameCounter.bulls} bulls and ${gameCounter.cows} cows`;
-
 
   userNumber.append(userDiv);
   userNumber.append(gameDiv);
