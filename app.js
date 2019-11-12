@@ -73,7 +73,6 @@ function render(generatedNumeral, enteredNumeral, gameCounter) {
 
   userDiv.innerHTML = `You'r number is: ${enteredNumeral}`;
   gameDiv.innerHTML = `You have: ${gameCounter.bulls} bulls and ${gameCounter.cows} cows`;
-
   userNumber.append(userDiv);
   userNumber.append(gameDiv);
   userNumber.append(br);
