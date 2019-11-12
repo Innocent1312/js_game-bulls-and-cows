@@ -39,7 +39,7 @@ function showComputerValue(generatedNumber) {
 function bullsAndCows(enteredNumber, generatedNumber) {
   const generatedNumeral = generatedNumber;
   let enteredNumeral = [...new Set(enteredNumber)];
-  document.getElementById('user-number').innerHTML = '';
+
 
   for (let i = 0; i < enteredNumeral.length; i++) {
     enteredNumeral[i] = +enteredNumeral[i];
@@ -52,8 +52,11 @@ function bullsAndCows(enteredNumber, generatedNumber) {
 
   if (enteredNumeral.length !== 4
       || !/[0-9]/.test(enteredNumber)) {
-     document.getElementById('user-number')
-         .innerHTML = `You can only use a 4-digit number without any other characters`;
+    setTimeout(errorClear, 4000);
+    document.getElementById('user-number')
+         .innerHTML =
+         `You can only use a four-digit number. <br>
+          You cannot use duplicate numbers or any other characters`;
     return;
   }
 
@@ -68,17 +71,19 @@ function bullsAndCows(enteredNumber, generatedNumber) {
   render(generatedNumeral, enteredNumeral.join(''),gameCounter);
 }
 
+function errorClear() {
+  document.getElementById('user-number').innerHTML = '';
+}
+
 function render(generatedNumeral, enteredNumeral, gameCounter) {
   const userNumber = document.getElementById('user-number');
   const userDiv = document.createElement('div');
-  const gameDiv = document.createElement('div');
-  const br = document.createElement('br');
 
-  userDiv.innerHTML = `You'r number is: ${enteredNumeral}`;
-  gameDiv.innerHTML = `You have: ${gameCounter.bulls} bulls and ${gameCounter.cows} cows`;
+  userDiv.innerHTML =
+  `<br> You'r number is: ${enteredNumeral} <br> 
+   You have: ${gameCounter.bulls} bulls and ${gameCounter.cows} cows`;
+
   userNumber.append(userDiv);
-  userNumber.append(gameDiv);
-  userNumber.append(br);
 }
 
 generateNumber();
