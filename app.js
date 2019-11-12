@@ -39,6 +39,7 @@ function showComputerValue(generatedNumber) {
 function bullsAndCows(enteredNumber, generatedNumber) {
   const generatedNumeral = generatedNumber;
   let enteredNumeral = [...new Set(enteredNumber)];
+  document.getElementById('user-number').innerHTML = '';
 
   for (let i = 0; i < enteredNumeral.length; i++) {
     enteredNumeral[i] = +enteredNumeral[i];
@@ -51,6 +52,8 @@ function bullsAndCows(enteredNumber, generatedNumber) {
 
   if (enteredNumeral.length !== 4
       || !/[0-9]/.test(enteredNumber)) {
+     document.getElementById('user-number')
+         .innerHTML = `You can only use a 4-digit number without any other characters`;
     return;
   }
 
