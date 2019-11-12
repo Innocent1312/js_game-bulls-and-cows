@@ -10,7 +10,7 @@ function generateNumber() {
   }
 
   getUserNumber(generatedNumber);
-  showComputerValue(generatedNumber);
+  showComputerValue(generatedNumber.join(''));
 }
 
 function getUserNumber(generatedNumber) {
@@ -62,7 +62,7 @@ function bullsAndCows(enteredNumber, generatedNumber) {
     }
   }
 
-  render(generatedNumeral, enteredNumeral,gameCounter);
+  render(generatedNumeral, enteredNumeral.join(''),gameCounter);
 }
 
 function render(generatedNumeral, enteredNumeral, gameCounter) {
