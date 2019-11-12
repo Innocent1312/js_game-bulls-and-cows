@@ -39,7 +39,8 @@ function showComputerValue(generatedNumber) {
 function bullsAndCows(enteredNumber, generatedNumber) {
   const generatedNumeral = generatedNumber;
   let enteredNumeral = [...new Set(enteredNumber)];
-
+  const errorDiv = document.createElement('div');
+  errorDiv.innerHTML = '';
 
   for (let i = 0; i < enteredNumeral.length; i++) {
     enteredNumeral[i] = +enteredNumeral[i];
@@ -52,11 +53,10 @@ function bullsAndCows(enteredNumber, generatedNumber) {
 
   if (enteredNumeral.length !== 4
       || !/[0-9]/.test(enteredNumber)) {
-    setTimeout(errorClear, 4000);
-    document.getElementById('user-number')
-         .innerHTML =
-         `You can only use a four-digit number. <br>
+    errorDiv.innerHTML =
+        `<br> You can only use a four-digit number. <br>
           You cannot use duplicate numbers or any other characters`;
+    document.getElementById('user-number').append(errorDiv);
     return;
   }
 
@@ -69,10 +69,6 @@ function bullsAndCows(enteredNumber, generatedNumber) {
   }
 
   render(generatedNumeral, enteredNumeral.join(''),gameCounter);
-}
-
-function errorClear() {
-  document.getElementById('user-number').innerHTML = '';
 }
 
 function render(generatedNumeral, enteredNumeral, gameCounter) {
