@@ -15,7 +15,16 @@ function generateNumber() {
 
 function getUserNumber(generatedNumber) {
   const tryButton = document.getElementById('try-btn');
+  const userInput = document.getElementById('user-input');
   let generatedNumeral = generatedNumber;
+
+  userInput.addEventListener('keyup', (event)=>{
+    if (event.code === 'Enter'){
+      let userInputValue = document.getElementById('user-input').value;
+
+      bullsAndCows(userInputValue, generatedNumeral);
+    }
+  }, false)
 
   tryButton.addEventListener('click', () => {
     let userInputValue = document.getElementById('user-input').value;
@@ -50,7 +59,10 @@ function bullsAndCows(enteredNumber, generatedNumber) {
     cows: 0,
   };
 
+  console.log(enteredNumber.length);
+
   if (enteredNumeral.length !== 4
+      || enteredNumber.length >= 5
       || !/[0-9]/.test(enteredNumber)
       || isNaN(enteredNumber)) {
         errorDiv.innerHTML =
