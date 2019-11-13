@@ -80,20 +80,18 @@ function bullsAndCows(enteredNumber, generatedNumber) {
   }
 
   if (gameCounter.bulls === 4){
-    const congratsDiv = document.createElement('div');
-    congratsDiv.innerHTML =
+    userNumber.innerHTML =
         `<img src="pictures/hooray.jpg" alt="hooray" class="hooray-pic"> <br>
           <span class="hooray-text">You are the winner of this game! <br>
            <input type="button" value="Start New Game" id="gameBtn" class="button"></span>`;
-    userNumber.append(congratsDiv);
 
     const gameBtn = document.getElementById('gameBtn');
 
     gameBtn.addEventListener('click', ()=>{
       window.location.reload();
       enteredNumber = 0;
-    },false)
-
+    },false);
+    return;
   }
 
   render(generatedNumeral, enteredNumeral.join(''),gameCounter);
