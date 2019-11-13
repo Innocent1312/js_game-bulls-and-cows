@@ -17,7 +17,7 @@ function getUserNumber(generatedNumber) {
   const tryButton = document.getElementById('try-btn');
   let generatedNumeral = generatedNumber;
 
-  tryButton.addEventListener('click', ()=>{
+  tryButton.addEventListener('click', () => {
     let userInputValue = document.getElementById('user-input').value;
 
     bullsAndCows(userInputValue, generatedNumeral);
@@ -29,10 +29,7 @@ function showComputerValue(generatedNumber) {
   const showButton = document.getElementById('show-btn');
 
   showButton.addEventListener('click', () => {
-    const computerDiv = document.createElement('div');
-
-    computerDiv.innerHTML = `Computer number is: ${generatedNumber}`;
-    computerNumber.append(computerDiv);
+    computerNumber.innerHTML = `Computer number is: ${generatedNumber}`;
   },false)
 }
 
@@ -40,6 +37,8 @@ function bullsAndCows(enteredNumber, generatedNumber) {
   const generatedNumeral = generatedNumber;
   let enteredNumeral = [...new Set(enteredNumber)];
   const errorDiv = document.createElement('div');
+  const userNumber = document.getElementById('user-number');
+  errorDiv.classList.add('error-div');
   errorDiv.innerHTML = '';
 
   for (let i = 0; i < enteredNumeral.length; i++) {
@@ -52,11 +51,12 @@ function bullsAndCows(enteredNumber, generatedNumber) {
   };
 
   if (enteredNumeral.length !== 4
-      || !/[0-9]/.test(enteredNumber)) {
+      || !/[0-9]/.test(enteredNumber)
+      || isNaN(enteredNumber)) {
     errorDiv.innerHTML =
         `<br> You can only use a four-digit number. <br>
-          You cannot use duplicate numbers or any other characters`;
-    document.getElementById('user-number').append(errorDiv);
+          You cannot use duplicate numbers or any other characters.`;
+    userNumber.append(errorDiv);
     return;
   }
 
@@ -66,6 +66,15 @@ function bullsAndCows(enteredNumber, generatedNumber) {
     } else if (generatedNumeral.includes(enteredNumeral[i])) {
       gameCounter.cows++;
     }
+  }
+
+  if (gameCounter.bulls === 4){
+    const congratsDiv = document.createElement('div');
+    congratsDiv.innerHTML =
+        `<img src="pictures/hooray.jpg" alt="hooray" class="hooray-pic"> <br>
+          <span class="hooray-text">You are the winner of this game! <br>
+                                    Please, refresh the page to start new game</span>`;
+    userNumber.append(congratsDiv);
   }
 
   render(generatedNumeral, enteredNumeral.join(''),gameCounter);

@@ -1,0 +1,67 @@
+html {
+  font-family: "Big Shoulders Text", cursive;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hay-img {
+  height: 100px;
+  width: 500px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.btns-container {
+  display: flex;
+}
+
+.button {
+  outline: none;
+  display: inline-block;
+  margin: 10px 20px;
+  padding: 10px 30px;
+  position: relative;
+  border: 2px solid #f1c40f;
+  color: #f1c40f;
+  transition: 0.4s;
+}
+.button:hover {
+  color: #000;
+  background-color: #f1c40f;
+}
+
+.form__field {
+  margin-top: 15px;
+  width: 360px;
+  background: #ffe2a2;
+  color: #000000;
+  font: inherit;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+  border: 0;
+  outline: 0;
+  padding: 22px 18px;
+}
+
+.user-number-block {
+  text-align: center;
+}
+
+.error-div {
+  color: #ff7172;
+}
+
+.hooray-pic {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+
+.hooray-text {
+  color: #f1c40f;
+}
+
+/*# sourceMappingURL=main.css.map */
