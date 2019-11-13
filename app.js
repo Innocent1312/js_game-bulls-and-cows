@@ -59,7 +59,10 @@ function bullsAndCows(enteredNumber, generatedNumber) {
     cows: 0,
   };
 
+  console.log(enteredNumber.length);
+
   if (enteredNumeral.length !== 4
+      || enteredNumber.length >= 5
       || !/[0-9]/.test(enteredNumber)
       || isNaN(enteredNumber)) {
         errorDiv.innerHTML =
