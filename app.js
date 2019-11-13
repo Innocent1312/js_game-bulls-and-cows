@@ -21,14 +21,12 @@ function getUserNumber(generatedNumber) {
   userInput.addEventListener('keyup', (event)=>{
     if (event.code === 'Enter'){
       let userInputValue = document.getElementById('user-input').value;
-
       bullsAndCows(userInputValue, generatedNumeral);
     }
-  }, false)
+  }, false);
 
   tryButton.addEventListener('click', () => {
     let userInputValue = document.getElementById('user-input').value;
-
     bullsAndCows(userInputValue, generatedNumeral);
   }, false);
 }
@@ -105,7 +103,7 @@ function render(generatedNumeral, enteredNumeral, gameCounter) {
   `<br> You'r number is: ${enteredNumeral} <br> 
    You have: ${gameCounter.bulls} bulls and ${gameCounter.cows} cows`;
 
-  userNumber.append(userDiv);
+  userNumber.prepend(userDiv);
 }
 
 generateNumber();
