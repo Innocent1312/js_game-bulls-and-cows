@@ -36,7 +36,7 @@ function showComputerValue(generatedNumber) {
 function bullsAndCows(enteredNumber, generatedNumber) {
   const generatedNumeral = generatedNumber;
   let enteredNumeral = [...new Set(enteredNumber)];
-  const errorDiv = document.createElement('div');
+  const errorDiv = document.getElementById('error-div');
   const userNumber = document.getElementById('user-number');
   errorDiv.classList.add('error-div');
   errorDiv.innerHTML = '';
@@ -53,10 +53,9 @@ function bullsAndCows(enteredNumber, generatedNumber) {
   if (enteredNumeral.length !== 4
       || !/[0-9]/.test(enteredNumber)
       || isNaN(enteredNumber)) {
-    errorDiv.innerHTML =
-        `<br> You can only use a four-digit number. <br>
-          You cannot use duplicate numbers or any other characters.`;
-    userNumber.append(errorDiv);
+        errorDiv.innerHTML =
+            `<br> You can only use a four-digit number. <br>
+              You cannot use duplicate numbers or any other characters.`;
     return;
   }
 
@@ -73,8 +72,16 @@ function bullsAndCows(enteredNumber, generatedNumber) {
     congratsDiv.innerHTML =
         `<img src="pictures/hooray.jpg" alt="hooray" class="hooray-pic"> <br>
           <span class="hooray-text">You are the winner of this game! <br>
-                                    Please, refresh the page to start new game</span>`;
+           <input type="button" value="Start New Game" id="gameBtn" class="button"></span>`;
     userNumber.append(congratsDiv);
+
+    const gameBtn = document.getElementById('gameBtn');
+
+    gameBtn.addEventListener('click', ()=>{
+      window.location.reload();
+      enteredNumber = 0;
+    },false)
+
   }
 
   render(generatedNumeral, enteredNumeral.join(''),gameCounter);

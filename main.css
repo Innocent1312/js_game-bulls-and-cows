@@ -12,7 +12,6 @@ html {
   height: 100px;
   width: 500px;
   object-fit: cover;
-  margin-bottom: 15px;
 }
 
 .btns-container {
@@ -55,6 +54,11 @@ html {
   color: #ff7172;
 }
 
+.computer-number {
+  height: 20px;
+  font-size: 20px;
+}
+
 .hooray-pic {
   width: 100px;
   height: 100px;
@@ -63,6 +67,13 @@ html {
 
 .hooray-text {
   color: #f1c40f;
+}
+
+.error-div {
+  text-align: center;
+  height: 60px;
+  margin-bottom: 5px;
+  font-size: 16px;
 }
 
 /*# sourceMappingURL=main.css.map */
