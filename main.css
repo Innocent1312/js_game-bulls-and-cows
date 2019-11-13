@@ -25,6 +25,7 @@ html {
   margin: 10px 20px;
   padding: 10px 30px;
   position: relative;
+  background-color: #fff;
   border: 2px solid #f1c40f;
   color: #f1c40f;
   transition: 0.4s;
